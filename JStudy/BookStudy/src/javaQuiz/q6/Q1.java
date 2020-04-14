@@ -27,7 +27,6 @@ public class Q1 {
 			arrScore[i] = Integer.parseInt(sc.nextLine());
 			iTotal += arrScore[i];
 		}
-		
 		float dAverage = ((float)iTotal)/5;
 		System.out.println("입력한 점수 : "+Arrays.toString(arrScore));
 		System.out.println("입력한 점수 총 합 : " + iTotal);
