@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>var, let, const</title>
+<script type = "text/javascript">
+	var v = "hello"; //전역변수 (global 변수 )//class car{ private int door;}
+	function func(){
+		var v = "world"
+		//document.write("func : "+ v);
+	}
+	func();
+	document.write("func : "+ v);
+/*
+ * 	function makePlan(){
+		var name;
+		if(){
+			let id;
+		}
+	}
+ */
+</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div style = "width : 100px; height : 100px; background-color: yellow"></div>
+	<div style = "width : 100px; height : 100px; background-color: orange"></div>
+	<div style = "width : 100px; height : 100px; background-color: pink"></div>
+	<hr />
+	<div style = "width : 100px; height : 100px; background-color: yellow; float : left"></div>
+	<div style = "width : 120px; height : 100px; background-color: orange"></div>
+	<div style = "width : 100px; height : 100px; background-color: pink"></div>
+	<hr />
+	<div style = "width : 100px; height : 100px; background-color: yellow;float : left"></div>
+	<div style = "width : 100px; height : 100px; background-color: orange;float : left"></div>
+	<div style = "width : 220px; height : 100px; background-color: pink"></div>
+	<hr />
+	<div style = "width : 100px; height : 100px; background-color: yellow;float : left"></div>
+	<div style = "width : 100px; height : 100px; background-color: orange;float : left"></div>
+	<div style = "width : 100px; height : 100px; background-color: pink;float : left"></div>
+	<hr />
+	
+</body>
+</html>

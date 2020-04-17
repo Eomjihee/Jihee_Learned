@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div class = "container">
+		<div id = "header">
+			<h3>학원 갤러리</h3>
+		</div>
+		<div id = "nav">
+			<ul>
+				<li><a href="#">서초</a></li>
+				<li><a href="#">강남</a></li>
+				<li><a href="#">종로</a></li>
+			</ul>
+		</div>
+		<div id = "article">
+			<h1>서초</h1>
+			<p>이 곳은 국가지원 과정을 운영하는 곳입니다.</p>
+		</div>
+		<div id = "footer">www.bit.co.kr</div>
+	</div>
+</body>
+</html>

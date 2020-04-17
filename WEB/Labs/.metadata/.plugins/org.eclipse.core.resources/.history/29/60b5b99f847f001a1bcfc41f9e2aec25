@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<script type="text/javascript">
+	/*
+		javascript (언어 : Web에서 사용되는 언어.코드를 해석하는 역할: 웹브라우저(렌더링된다고 표현) 해석기(엔진)가 라인단위로 해석 (순서가 매우 중요) 인터크루팅?언어?)
+		ex ) url > naver.com/js/common.js > enter => common.js > enter => common.js 다운로드(local) => 내 브라우저가 해석
+		javascript (객체지향 언어 : class 개념 갖고있다. 상속, 다형성, 재사용성)
+
+		javascript 사용
+		1. html의 content, attribute [변경] [삭제] [추가] 동적으로 할 수 있다.
+		2. css 속성 [변경] [삭제] [추가] 동적으로
+		3. 유효성 검증 (id체크, 주민번호)
+		4. 동적인 웹페이지(화면 구성)
+		5. 전 세계적으로 1위
+		   -javascript >> 코드량도 좀 줄이고 많이 쓰는건 편하게 쓸 수 없을까? >> framework(일종의 함수덩어리)
+		   -jquery.js (좀 더 쉽게 사용하자) >> angular.js (MVC)
+		   -javascript를 (local에서 동작 : 브라우저엔진을 local로(v8엔진) >> script가 back단 언어 역할을 하게 됨)
+		   -java (DB연동 : oracle 연동 CRUD ) >> javascript 기능 >> node.js(npm)
+
+	*/
+	</script>
+	<style type="text/css">
+	/* CSS */
+	</style>
+</head>
+<body>
+	hello world
+</body>
+</html>

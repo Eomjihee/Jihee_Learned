@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type = "text/css">
+/*
+css
+1. 일반 태그(요소)에 적용하는 방법( p, h3, div, hr)
+2. 사용자가 css이름 정의해서 사용(.이름, #이름)
+	. >> 실제 태그가 class라는 속성으로 반영
+	# >> 태그가 id 속성으로 반영
+	. > class , # > id
+*/
+p {background-color : gold}
+#hee {color : red}
+.hong {color : blue}
+</style>
+
+</head>
+<body>
+<p>일반 css적용</p>
+<p id = "hee">id속성 사용</p>
+<p id = "hong">.hong</p>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+    //유효성 검증
+    //1. Client 서버 전송 >> 서버검증 > 검증 여부(true, false) : id 검사
+    //2. Client 에서 검증 >> 입력 유무 , 숫자 , 문자 검증, 주민번호 >> 검증 >> 서버 전송
+    //최대한 Client에서 처리할 수 있는 부분은 처리하자 .. (서버 전송수를 줄이자)
+
+    //2번은 javascript 해결
+    function send(){
+        //javascript 가 요소의 정보를 가지고있어야 한다.
+        //var ele = docuument.forms[0].elements[0].value
+
+        //다행히 form 태그가 name 속성을 가지면
+        var inputuserid = document.loginform.txtuserid;
+        console.log(inputuserid);
+        console.log(inputuserid.value);
+        //활용 (DOM script)
+        var userpwd = document.getElementById("txtpwd");
+        console.log(userpwd);
+        console.log(userpwd.value);
+
+        //검증 로직 (여러분이 알아서 해보세요)
+        if((inputuserid.value =="") || !(inputuserid.value.length)>=3 && inputuserid.value.length <=10){
+            alert("다시 입력하세요");
+            document.loginform.txtuserid.focus();
+            inputuserid.select();
+        } else{
+            alert("검증 완료");
+            //여기서 서버로 전송
+
+            document.loginform.action = "Ex08_login.jsp";
+            document.loginform.submit()
+
+
+
+            
+        }
+    
+    }
+    </script>
+</head>
+<body>
+    <form action="" method="" name="loginform">
+        id : <input type="text" name="txtuserid"><br>
+        pwd : <input type="password" name="txtpwd" id="txtpwd"><br>
+        <input type="button" value="전송" onclick="send()">
+
+        <!--
+            type = "submit"
+            type = "images"
+            type = "button" onClick="함수를 사용"
+
+        -->
+
+    </form>
+</body>
+</html>

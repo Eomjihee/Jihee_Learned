@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 함수 (문자열, 숫자)</title>
+    <script type="text/javascript">
+    var str = "10+20+30";
+    document.write(str + "<br>");
+    //1. eval()
+    //문자형 수식을 계산 > "10+20+30" > 계산 > 60
+    //ex) 10+20A+30 >> Error
+    //문자형 숫자 > 숫자
+    document.write("eval()" + eval(str) + "<br>");
+
+    //2. isNan >> Not a number >> 너 숫자 아니니(true) >> false 나오면 숫자임
+    document.write(isNaN("12345" + "<br>")); //false
+    document.write(isNaN("12345A") + "<br>");//true
+    document.write(isNaN("대한민국"+"<br>"));//true
+    document.write(isNaN('12345'+"<br>"));//false 숫자
+    
+    //https://www.w3schools.com/jsref/jsref_obj_string.asp
+    //문자열 함수 참조
+
+    //https://www.w3schools.com/jsref/jsref_obj_number.asp
+    //숫자 함수 참조
+    
+    let i = "100";
+    let j = "200";
+    document.write("결합" + (i+j)); //java+(산술, 결합)
+    document.write("<br>숫자 변환:"+(Number(i)+Number(j)));
+
+    //method
+    //number() https://www.w3schools.com/js/js_number_methods.asp
+    //parseFloat()
+    //parseInt()
+    
+    /*
+    Event	Description
+    onchange	An HTML element has been changed
+    onclick	The user clicks an HTML element
+    onmouseover	The user moves the mouse over an HTML element
+    onmouseout	The user moves the mouse away from an HTML element
+    onkeydown	The user pushes a keyboard key
+    onload	The browser has finished loading the page 중요!!
+
+    onload가 무엇일까?
+        >> body에 있는 모든 요소를 메모리에 올리고 난 후에 행위를 실행하게 만든다.
+        >> 자동 사건 발생 >> onload 사건
+        >>모든 요소는 메모리에 계층트리 (DOM) 형태로 있다는 보장
+
+    onblur() >> 포커스가 요소를 떠날 때
+    onfocus() >>포커스가 요소에 들어올 때
+    */
+    
+    function focusFunc(){
+        document.getElementById("myinput").style.background="yellow";
+    }
+    function blurFunc(){
+        document.getElementById("myinput").style.background="white";
+    }
+    function selectTag(){
+        let value = document.myform.sel.value;
+        alert(value);
+    }
+    //Point
+    function chageColor(obj){
+        console.log(obj);
+        obj.style.backgroundColor = "gold";
+        //<input type="text" onmouseover="chageColor(this)">
+        //this 자기자신
+    }
+    function chageColor2(obj){
+        console.log(obj);
+        obj.style.backgroundColor = "white";
+        //<input type="text" onmouseover="chageColor(this)">
+        //this 자기자신
+    }
+    //var data = document.myform.money.value;
+    //document.write(isNaN(data)+"<br>");
+    //안됨 왜냐면 순서가 앞이라서
+    function load(){
+        var data = document.myform.money.value;
+        console.log(isNaN(data)+"<br>");
+    }
+
+    </script>
+</head>
+<body onload="load()">
+    <form action="#" name ="myform">
+        <input type="text" id ="myinput" name = "myinput" onfocus="focusFunc()" onblur="blurFunc()"><br>
+        <select name="sel" id="" onchange="selectTag()">
+            <option value="A">AA</option>
+            <option value="B">BB</option>
+            <option value="C">CC</option>
+            <option value="D">DD</option>
+        </select>
+        <hr>
+        <input type="text" onmouseover="chageColor(this)" onmouseout="chageColor2(this)"> <!-- 핵심 키워드 this :input 태그 전체를 가리킴 -->
+        <br>
+        <input type="text" onkeypress="alert('왜안됨')"> <br>
+        <input type="text"value="1000"name="money">
+    </form>
+</body>
+<script type="text/javascript">
+    //순서로 따지면 ok 그게싫으면 함수를 위에서 만들기
+    //var data = document.myform.money.value;
+    //document.write(isNaN(data)+"<br>");
+</script>
+</html>
+
+
+

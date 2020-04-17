@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>CSS 사용하기</title>
+<style type = "text/css">
+/*
+html 문서 css 적용하는 법
+1. inline (태그 안쪽에)
+2. internal(page 상단)
+3. external(별도의 css 파일) 실제 개발시 방법 (common.css)
+*/
+body {background-color : #E8F4F3 }
+h3 {color : 1D445D}
+p {
+	border: 1px solid red;
+	padding-right: 30px;
+	padding-left: 30px;
+}
+</style>
+<link rel="stylesheet" href="css/common.css" />
+</head>
+<body>
+	<p style = "background-color:#FFD9E1">문단 태그입니다.(in-line))</p>
+	<p style = "background-color:#ECD9FF">문단 태그입니다.(in-line))</p>
+	<h3>CSS</h3>
+	<h1>외부 css 적용</h1>
+	<h2>외부 css 적용</h2>
+	
+	<h3 style = "color : green">inline과 internal 충돌하면 안쪽 우선</h3>
+</body>
+</html>

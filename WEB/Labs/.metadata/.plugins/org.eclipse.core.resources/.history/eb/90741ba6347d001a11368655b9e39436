@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>개발자 필수 태그(암기)</title>
+</head>
+<body>
+	<!-- 회원가입, 게시판 글쓰기, 읽기, 수정, 삭제 화면 디자인 -->
+	<h3>로그인 처리</h3>
+	<form action="Ex14_Login.jsp" method ="post">
+		<input type="text" name = "userid" /><br />
+		<input type="text" name = "userpwd" /><br />
+		<!-- <input type="submit" value = "로그인" /><br /> -->
+		<br />
+		<input type="image" src = "images/icon.png" width="40" height="40"/>
+		<input type="reset" value = "취소" /><br />
+	</form>
+	<!-- 
+	form 태그는 전송을 담당하는 태그 (서버 : 네이버 , 다음 등) >> 웹서버 >> Tomcat (운송수단, 전송수단)
+	
+	네이버 >> 회원가입 >> 회원가입 페이지 >> 정보입력 >> 가입하기 >> 전송 >> 네이버 서버
+	>>입력한 데이터 (네트워크) 이동 >> form(태워서 목적지로 이동) >> 서버(데이터 받기) >> JSP(Servlet)
+	>>DB 연결 >> Insert >> 완료 >> 클라이언트 응답 (response)
+	
+	form (전송 수단)
+	2가지 유형의 전송 : 배(method = "get"), 비행기 (method = "post")
+	
+	!! get 방식 : 이동할 때 웹사이트 주소창에 내 데이터가 노출됨
+	http://localhost:8090/WebClient/Ex14_Login.jsp?userid=jihee&userpwd=1234
+	
+	!! post 방식 : 데이터 노출되지 않음. http 프로토콜 사용해서 header 안에 내용(정보) 숨겨서 전송
+	http://localhost:8090/WebClient/Ex14_Login.jsp
+	
+	post가 더 좋다면 굳이 get이 필요한가요?
+	 >> 어쩔 수 없이 배(get)를 타야하는 경우가 생긴다. 
+	 	link를 통해서 정보를 전송할 경우 post를 사용할 수 없다.
+	 	<a href = " board.jsp?id=100&..>게시판 읽기</a>
+	 	<a href = "boardDetail.jsp?bordno=100">글 상세보기</a>
+	 	
+	form (action = "목적지 주소") >> 목적지 주소 (login.do,login.jsp, login.action)
+	form 기장(조종사) >> submit, reset(출발을 취소하는애)
+	서버로 전송 (출발) >> form 태그안에서
+	1. input type = "submit" 전송
+	2. input type = "image" 내부적으로 전송 기능 포함
+	3. input type = "button >> javascript >> 이벤트 >> document.form.submit() 전송"
+	
+	
+	
+	 -->
+	
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type = "text/css">
+	.floating-box{
+		width :150px;
+		height:80px;
+		margin : 10px;
+		border : 3px dotted red;
+	}
+</style>
+</head>
+<body>
+	<h3>float</h3>
+	<div>1</div>
+	<div>2</div>
+	<div>3</div>
+	<div>4</div>
+	<div>5</div>
+</body>
+</html>

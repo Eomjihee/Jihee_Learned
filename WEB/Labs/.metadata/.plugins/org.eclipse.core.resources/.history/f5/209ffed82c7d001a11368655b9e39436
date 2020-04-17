@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>개발자 필수 태그(암기)</title>
+</head>
+<body>
+	<!-- 회원가입, 게시판 글쓰기, 읽기, 수정, 삭제 화면 디자인 -->
+	<h3>로그인 처리</h3>
+	<form action="Ex14_Login.jsp" method ="post">
+		<input type="text" name = "userid" /><br />
+		<input type="text" name = "userpwd" /><br />
+		<input type="submit" value = "로그인" /><br />
+		<input type="reset" value = "취소" /><br />
+	</form>
+	<!-- 
+	form 태그는 전송을 담당하는 태그 (서버 : 네이버 , 다음 등) >> 웹서버 >> Tomcat (운송수단, 전송수단)
+	
+	네이버 >> 회원가입 >> 회원가입 페이지 >> 정보입력 >> 가입하기 >> 전송 >> 네이버 서버
+	>>입력한 데이터 (네트워크) 이동 >> form(태워서 목적지로 이동) >> 서버(데이터 받기) >> JSP(Servlet)
+	>>DB 연결 >> Insert >> 완료 >> 클라이언트 응답 (response)
+	
+	form (전송 수단)
+	2가지 유형의 전송 : 배(method = "get"), 비행기 (method = "post")
+	
+	!! get 방식 : 이동할 때 웹사이트 주소창에 내 데이터가 노출됨
+	http://localhost:8090/WebClient/Ex14_Login.jsp?userid=jihee&userpwd=1234
+	
+	
+	 -->
+	
+</body>
+</html>

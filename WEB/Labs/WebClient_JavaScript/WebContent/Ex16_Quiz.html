@@ -1,0 +1,165 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>급여관리 시스템</title>
+	<!--  
+		규칙 : 기본급여  : (정수값)
+		       기타수당  : 국가유공자 + 5년이상 근속
+		       총액      : (기본급 + 자격증 수당 + 자녀 수당 + 기타 수당)
+		       세금      : 기본급 * 0.22 
+		       실수령액  : 총액 - 세금
+		       연봉      : 총액 * 12 + 기본급
+		       천단위 콤마 처리 : 자율 (표현식 , 로직)
+		       10,000,000원 
+		       
+	
+	-->
+	<script type="text/javascript">
+	function resultSal(frm) {
+		//계산하기 버튼을 누르면 실행될 함수
+
+		resultForm.resultName.value = frm.name.value;
+		resultForm.resultBasicPay.value = frm.basicPay.value;
+
+		var checkLicense = frm.license.checked; //자격증 체크
+		var checkChild = frm.child.checked;
+		//기타수당 체크
+		var checkMerit = frm.merit.checked;
+		var checkLongterm = frm.longterm.checked;
+
+		//자격증 체크 if문
+		if(checkLicense == false){
+			resultForm.resultLicense.value = 0;
+		}else{
+			resultForm.resultLicense.value = frm.license.value;
+		}
+		//자녀 수당 체크 if문
+		if(checkChild == false){
+			resultForm.resultChild.value = 0;
+		}else{
+			resultForm.resultChild.value = frm.child.value;
+		}
+
+
+		//기타 수당 계산하는 if문
+		if(checkMerit &&checkLongterm){ 
+			resultForm.resultEtc.value = 200000;
+		}else if((!checkMerit && checkLongterm) || (checkMerit &&!checkLongterm)){
+			resultForm.resultEtc.value = 100000;
+		}else if(!checkMerit && !checkLongterm) {
+			resultform.resultEtc.value=0;
+		}
+
+		//총액 계산
+		with(resultForm){
+			resultTotalPay.value =Number(resultBasicPay.value) 
+								+ Number(resultLicense.value) 
+								+ Number(resultChild.value) 
+								+ Number(resultEtc.value);
+		//총 세금 계산
+			resultTax.value = Number(resultBasicPay.value)*0.22;
+		//실 수령액
+			resultPay.value = Number(resultTotalPay.value) - (Number(resultBasicPay.value)*0.22);
+		//연봉
+			resultYearlyPay.value = (Number(resultTotalPay.value)*12) + Number(resultBasicPay.value);
+			
+		resultBasicPay.value = addComma(resultBasicPay.value);
+		resultLicense.value = addComma(resultLicense.value);
+		resultChild.value = addComma(resultChild.value);
+		resultEtc.value = addComma(resultEtc.value);
+		resultTotalPay = addComma(resultTotalPay);
+		resultYearlyPay = addComma(resultYearlyPay);
+		resultTax.value = addComma(resultTax.value);
+
+		var totalpay = resultTotalPay.value;
+		var pay = resultPay.value;
+		var yearlypay = resultYearlyPay.value;
+		
+		resultTotalPay.value = addComma(totalpay);
+		resultPay.value = addComma(pay);
+		resultYearlyPay.value = addComma(yearlypay);
+
+		}
+		// var basicpay = resultForm.resultBasicPay.value;
+		// var license = resultForm.resultLicense.value;
+		// var child = resultForm.resultChild.value;
+		// var etc = resultForm.resultEtc.value;
+		// var totalpay = resultForm.resultTotalPay.value;
+		// var yearlypay = resultForm.resultYearlyPay.value;
+
+		
+	}
+	function addComma(num) {
+  		var regexp = /\B(?=(\d{3})+(?!\d))/g;
+  		return num.toString().replace(regexp, ',');
+	}
+	</script>
+</head>
+<body>
+	<h2>급여 관리 시스템 지원 양식</h2>
+ <form name="payManage">
+ <table>
+     <tr>
+         <td >성명: </td>
+         <td><input type="text" name="name" size="20" ></td>
+     </tr>
+     <tr>
+         <td >기본급: </td>
+         <td><input type="text" name="basicPay" size="20"  ></td>
+      </tr>
+      <tr>
+         <td >자격증 수당: </td>
+         <td><input type="radio" name="license" value="150000">기사 150,000원
+             <input type="radio" name="license" value="100000">산업기사 100,000원
+             <input type="radio" name="license" value="50000">기능사 50,000원
+         </td>
+      </tr>
+      <tr>
+         <td >자녀 수당: </td>
+         <td><input type="radio" name="child" value="100000">1인 100,000원
+             <input type="radio" name="child" value="200000">2인 200,000원
+             <input type="radio" name="child" value="300000">3인 300,000원
+         </td>
+     </tr>
+     <tr>
+         <td >기타 수당: </td>
+         <td><input type="checkbox" name="merit" value=100000>국가유공자 100,000원
+             <input type="checkbox" name="longterm" value=100000>5년이상 근속 100,000원
+         </td>
+     </tr>
+     <tr>
+         <td colspan="2"><input type="button" name="btn" value="계산하기" onclick="resultSal(this.form)" style="margin-left: 30px">
+         </td>
+     </tr>
+ </table>
+ </form>
+ <p>
+ <p>
+ <form name="resultForm">
+ <table align="left" style="margin-left: 0px">
+ 		 <tr><th colspan=2>출력 결과</th></tr>
+	     <tr><td  width="100px">성명: </td>
+	        <td><input type=text name=resultName></td>
+	     <tr><td >기본급: </td>
+	        <td><input type=text name=resultBasicPay></td>
+	     <tr><td >자격증 수당: </td>
+	        <td><input type=text name=resultLicense></td>
+	     <tr><td >자녀 수당: </td>
+	        <td><input type=text name=resultChild></td>
+	     <tr><td >기타 수당: </td>
+	         <td><input type=text name=resultEtc></td>
+	     <tr><td >총액: </td>
+	         <td><input type=text name=resultTotalPay></td>
+	     <tr><td >세금: </td>
+	        <td><input type=text name=resultTax></td>
+	     <tr><td >실수령액: </td>
+	        <td><input type=text name=resultPay></td>
+	     <tr><td >연봉: </td>
+	        <td><input type=text name=resultYearlyPay></td>
+	 	</tr>
+ </table>
+ </form>
+</body>
+</html>

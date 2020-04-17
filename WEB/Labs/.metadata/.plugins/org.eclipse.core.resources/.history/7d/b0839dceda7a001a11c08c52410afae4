@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>div 영역을 정의하는 태그(페이지 레이아웃 디자인)</title>
+</head>
+<body>
+	<div style = "background-color : gray;padding : 50px;">
+		<h3>영역을 정의</h3>
+		<p>div 화면의 레이아웃을 만들어요</p>
+	</div>
+	<div style = "background-color : pink;">
+		div 태그 ^0^
+	</div>
+	<h3>span content(text) 내용 변화</h3>
+	<h1>가장<span style="color : pink;">중요한</span>것은 span태그로 묶입니다.</h1>
+	
+	<hr />
+	<p style = "background-color : skyblue">p태그는 문단이기 때문에 마진값을 갖고있어요.</p>
+	<div style = "background-color : grey">하지만 div는</div>
+	<div style = "background-color : pink">마진값이 없답니당^^</div>
+	<div style = "background-color : grey">으아아악</div>
+	<div style = "background-color : grey">으아아악</div>
+	<br />
+	<div style = "background-color : grey;width : 200px">으아아악</div>
+	<div style = "background-color : pink;width : 200px">으아아악</div>
+	<div style = "background-color : grey;width : 200px">으아아악</div>
+	
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>홈페이지 기본 레이아웃 구성해보기</title>
+<style>
+.wrap{
+	background-color: gray;
+}
+.header{
+	background-color : black;
+	color : white;
+}
+.nav{
+	background-color: gray;
+	color : black;
+}
+.nav > p {
+	float : left;
+}
+.nav > p:hover{
+	background-color: pink ;
+	color : gray;
+}
+
+
+</style>
+</head>
+<body>
+	<div id="wrap">
+		<div id="header"></div>
+		<div id="nav">
+			<p>공지사항</p>
+			<p>자유게시판</p>
+			<p>FAQ</p>
+		</div>
+		<div id="main">
+			<div id="l_main"></div>
+			<div id="r_main"></div>
+		</div>
+		<div id ="footer"></div>
+	</div>
+</body>
+</html>

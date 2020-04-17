@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Html5 input tag</title>
+</head>
+<body>
+	<form action="">
+	<label for="favcolor">select your favorite color</label>
+	<input type="color" id = "favcolor" name ="favcolor" />
+	<label for="birthday">Birthday:</label>
+  	<input type="date" id="birthday" name="birthday">
+  	<label for="datemax">Enter a date before 1980-01-01:</label>
+  	<input type="date" id="datemax" name="datemax" max="1979-12-31"><br><br>
+	</form>
+</body>
+</html>

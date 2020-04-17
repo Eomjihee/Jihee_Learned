@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>var, let, const</title>
+<script type = "text/javascript">
+	var v = "hello"; //전역변수 (global 변수 )//class car{ private int door;}
+	var p = "나는 전역변수";
+	function func(){
+		var v = "world" //값을 덮어써버리지 않아서 지역에서만 유효한 값이 됨
+		//v = "world" 이렇게 쓰면 값을 덮어씀
+		//var v ="" 지역변수 / v = "" 전역변수
+		document.write("func : "+ v+"<br>");
+		
+		p= "값을 바꾼 전역변수";
+	}
+	func();
+	document.write(v);
+	document.write(p);
+/*
+ * 	function makePlan(){
+		var name;
+		if(){
+			let id;
+		}
+	}
+ */
+</script>
+</head>
+<body>
+
+</body>
+</html>

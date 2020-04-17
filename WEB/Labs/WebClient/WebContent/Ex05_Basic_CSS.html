@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+/*
+css
+1. 일반 태그(요소)에 적용하는 방법( p, h3, div, hr)
+2. 사용자가 css이름 정의해서 사용(.이름, #이름)
+	. >> 실제 태그가 class라는 속성으로 반영
+	# >> 태그가 id 속성으로 반영
+	. > class , # > id
+    **id, class 속성은 css, javascript, jquery에서도 활용됨.
+    3. 다중 선택자 h1 , h2, h3 {color : pink}
+*/
+h1, h2, h3 {
+	color: pink
+}
+
+p {
+	background-color: gold
+}
+
+#hee {
+	color: red
+}
+
+.hong {
+	color: blue
+}
+</style>
+
+</head>
+<body>
+	<p>일반 css적용</p>
+	<p id="hee">id속성 사용</p>
+	<p id="hong">.hong</p>
+	<h1>RED H1</h1>
+	<h2>RED H2</h2>
+	<h3>RED H3</h3>
+	<img
+		src="https://www.google.com/logos/doodles/2020/thank-you-farmworkers-and-farmers-6753651837108757.2-law.gif"
+		alt="구글로고">
+	<!-- 이미지를 삽입할 때는 로컬에 있는 파일을 가져오는 것이 아니라 모아놓은 서버를 따로 만들고 링크를 가져와서 삽입하는 방식을 사용하는 것이 좋다.-->
+	<!-- 단점 : 서비스하는 서버가 죽으면 이미지가 모두 깨짐. -->
+	<!-- 이미지 크기를 %로 주면 브라우저 해상도에 따라 이미지파일의 크기가 변함 -->
+	<!-- CSS의 가장 중요한 기능 중 하나가 floating이다. 그림을 해당 공간 영역에 떠있도록 만들어줌-->
+	<!-- image map : 이미지를 나눠서 좌표값을 주고 그 좌표값에 링크 걸기 -->
+	<!-- 이미지를 분할하는 것은  photoshop의 imageready 같은 툴 사용. 코드로는 할수 없다. -->
+	
+	<!-- 테이블 >> th : 글자가 header처럼 나옴
+		         tb : 일반적인 글자로 나옴 -->
+    <!-- 원래 테이블은 보잘것 없지만 CSS를 입혀줘서 예쁘게 만들어줘야한다. -->
+    <!-- 테이블의 크기를 %로 주면 브라우저 해상도에 따라 크기가 변한다. -->
+    <!-- collapsed border를 사용해야 구성요소들의 경계를 병합할 수 있다.(선 한개로 표시됨) -->
+    <!-- text-align 테이블 내용 정렬 -->
+    
+   
+</body>
+</html>

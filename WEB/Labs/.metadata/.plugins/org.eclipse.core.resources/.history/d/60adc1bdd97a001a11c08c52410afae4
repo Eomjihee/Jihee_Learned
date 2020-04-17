@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>div 영역을 정의하는 태그(페이지 레이아웃 디자인)</title>
+</head>
+<body>
+	<div style = "background-color : gray;padding : 50px;">
+		<h3>영역을 정의</h3>
+		<p>div 화면의 레이아웃을 만들어요</p>
+	</div>
+</body>
+</html>

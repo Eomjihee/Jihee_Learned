@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Form 태그 내부에서 input (write, read)</title>
+</head>
+<body>
+	<form action="">
+		<fieldset>
+			<legend>Text : Password</legend>
+			Text : <input type="text" name="userid" id="userid" /><br />
+			password : <input type="password" name="pwd" maxlength="5" /><br />
+			<hr />
+			Text2 : <input type="text" name="data" maxlength="10" size="100px"
+				value="default값" /> <br /> readonly(읽기전용 : 서버 데이터 전송 기능) <input
+				type="text" name="data2" value="hong" readonly /> <br />
+			disabled(비활성화 : 서버 데이터 전송 불가능) <input type="text" name="data2"
+				value="hong" disabled="disabled" />
+
+		</fieldset>
+		<filedset> <legend>체크박스(다중 선택)</legend> 농구 <input
+			type="checkbox" name="sports_1" value="A" checked="checked" /> 야구 <input
+			type="checkbox" name="sports_2" value="B" /> 축구 <input
+			type="checkbox" name="sports_3" value="C" /> 
+			<!-- 
+			register.jsp?sports_1=A&sports_2=B&sports_3=C
+			서버 (jsp)
+			String a = request.getParameter("sports_1");
+			String b = request.getParameter("sports_2");
+			String c = request.getParameter("sports_3");
+			
+			register.jsp?sports=A&sports=B&sports=C
+			서버 (jsp)
+			String[] strarr = request.getParameterValues("sports");
+			strarr[0] = "A";
+			strarr[1] = "B";
+			strarr[2] = "C";
+			
+			 --> 
+		</filedset>
+		<fieldset>
+			<legend>Select 태그 (단일 선택 : 년, 월, 일)</legend>
+			<select name="year" id="">
+				<option value="2020">2020</option>
+				<option value="2019">2019</option>
+				<option value="2018">2018</option>
+				<!-- ?year=2020 -->
+			</select>
+		</fieldset>
+		<fieldset>
+			<legend>Select 태그 (다중 선택 : 체크박스와 비슷)</legend>
+			<select name="items"multiple="multiple">
+				<option value="01">JAVA</option>
+				<option value="02" selected="selected">Oracle</option>
+				<option value="03">HTML</option>
+				<!-- ?year=2020 -->
+			</select>
+		</fieldset>
+	</form>
+</body>
+</html>

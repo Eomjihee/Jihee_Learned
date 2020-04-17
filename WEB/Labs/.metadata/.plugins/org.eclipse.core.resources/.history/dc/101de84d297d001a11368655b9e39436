@@ -1,0 +1,20 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+	//JAVA 코드 (back 단 코드 : 서버에서 동작(컴파일) 되는 코드)
+	//목적지 주소 (Form action = "Ex14_Login.jsp")
+	//클라이언트가 가지고있는 데이터를 받아서 처리할거야
+	//아이디랑 패스워드를 받아서.
+	String userid = request.getParameter("userid");
+	String pwd = request.getParameter("userpwd");
+%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+</body>
+</html>

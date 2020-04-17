@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>var, let, const</title>
+<script type = "text/javascript">
+	var v = "hello"; //전역변수 (global 변수 )//class car{ private int door;}
+	var p = "나는 전역변수";
+	function func(){
+		var v = "world" //값을 덮어써버리지 않아서 지역에서만 유효한 값이 됨
+		//v = "world" 이렇게 쓰면 값을 덮어씀
+		//var v ="" 지역변수 / v = "" 전역변수
+		document.write("func : "+ v+"<br>");
+		
+		p= "값을 바꾼 전역변수";
+	}
+	func();
+	document.write(v+"<br>");
+	document.write(p);
+
+/*
+ * 	function makePlan(){
+		var name;
+		if(){
+			let id;
+		}
+	}
+ */
+
+ //const 상수
+ const hello ='hello';
+      hello = "change hello";
+      //
+      
+      //Scope 은 { } 블럭입니다
+      const hello2='hello!';
+      {   
+           const hello2='inner hello!'; 
+           console.log(hello2); // inner hello!
+      }
+      console.log(hello2); // hello! 
+      
+      //let 변수는 재정의 가능
+      let hello3='first hello';  // first hello
+      hello3 = 'changed hello';  // changed hello
+      console.log(hello3);
+      
+      //Scope 은 { } 블럭입니다
+      let hello4='first hello';  
+      {
+        let hello4 = 'inner hello';  
+        console.log(hello4); // inner hello
+      }
+      console.log(hello4); // first hello
+      
+      
+      let hello5='first hello';  
+      //let hello5='second hello'; // error
+      //Uncaught SyntaxError: Identifier 'hello5' has already been declared
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

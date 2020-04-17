@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        var myTime = window.setInterval(function(){
+
+        //javascript에서는 다양한 객체 제공받아요
+        var d = new Date();
+        var t = d.toLocaleTimeString();
+        document.getElementById("time").innerHTML = t;
+
+        //window.setInterval(function(){},1000);
+        //function(){} 익명함수
+        //1초마다 익명 함수를 호출하라
+        },1000);
+
+        function myTimeStop(){
+            window.clearInterval(myTime);
+            //현재 윈도우 창에 있는 인터벌을 전부 클리어시킨다는게 뭔말임
+        }
+    </script>
+</head>
+<body>
+    <p id="time"></p>
+    <button onclick="myTimeStop()">Stop Time</button>
+</body>
+</html>

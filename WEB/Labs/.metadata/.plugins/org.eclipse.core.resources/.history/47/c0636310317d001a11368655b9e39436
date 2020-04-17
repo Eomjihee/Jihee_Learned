@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Form 태그 내부에서 input (write, read)</title>
+</head>
+<body>
+	<form action="">
+		<fieldset>
+			<legend>Text : Password</legend>
+			Text : <input type="text" name="userid" id="userid" /><br />
+			password : <input type="password" name="pwd" maxlength="5" /><br />
+			<hr />
+			Text2 : <input type="text" name = "data" maxlength="10" size = "100px" value = "default값" />
+			<br />
+			readonly(읽기전용 : 서버 데이터 전송 기능)
+			<input type="text" name = "data2" value = "hong" readonly /> 
+			<br />
+			disabled(비활성화 : 서버 데이터 전송 불가능)
+			<input type="text" name = "data2" value = "hong" disabled="disabled" /> 
+			
+		</fieldset>
+		<filedset>
+			<legend>체크박스(다중 선택)</legend>
+			농구 <input type="checkbox" name = "sports_1" value ="A" />
+			야구 <input type="checkbox" name = "sports_2" value ="B" />
+			축구 <input type="checkbox" name = "sports_3" value ="C" />
+		</filedset>
+	</form>
+</body>
+</html>
