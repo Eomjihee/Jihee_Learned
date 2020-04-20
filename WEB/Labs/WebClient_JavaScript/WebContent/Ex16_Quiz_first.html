@@ -1,10 +1,9 @@
 
-
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-	<title>급여처리</title>
+	<meta charset="UTF-8">
+	<title>급여관리 시스템</title>
 	<!--  
 		규칙 : 기본급여  : (정수값)
 		       기타수당  : 국가유공자 + 5년이상 근속
@@ -17,58 +16,89 @@
 		       
 	
 	-->
-<script type="text/javascript">
-function resultSal(frm){
-    var nameA = frm.name.value;
-    var basicPayA = frm.basicPay.value;
-    var licenseA=0;
-    var childA =0;
-    var meritA = 0;
-    var longtermA=0;
-    
-   for(var i=0; i<frm.license.length; i++){
-        if(frm.license[i].checked==true){
-            licenseA=frm.license[i].value;
-            break;
-        }
-    }
-    
-    for(var i=0; i<frm.child.length; i++){
-        if(frm.child[i].checked==true){
-            childA=frm.child[i].value;
-            break;
-        }
-    } 
-    
-    
-    if(frm.merit.checked==true)
-        meritA=frm.merit.value;
-    
-    if(frm.longterm.checked==true)
-        longtermA = frm.longterm.value;
-    
-    var total = Number(basicPayA)+Number(licenseA)+Number(meritA)+Number(longtermA)+Number(childA);
-    var tax = Number(basicPayA)*0.22;
-    //toLocaleString() 은
-    //Number 형의 내장 함수로 숫자를 지역에 따른 돈의 형태(1,000,000 와 같은)로 String 형태로 형변환을 시켜 리턴하는 함수이다.
-    with(resultForm){
-        resultName.value=nameA;
-        resultBasicPay.value=Math.round((Number(basicPayA))).toLocaleString()+"원";
-        resultLicense.value = Number(licenseA).toLocaleString()+"원";
-        resultChild.value = Number(childA).toLocaleString()+"원";
-        resultEtc.value = (Number(meritA)+Number(longtermA)).toLocaleString()+"원";
-        resultTotalPay.value = total.toLocaleString()+"원";
-        resultTax.value = tax.toLocaleString()+"원";
-        resultPay.value = (total-tax).toLocaleString()+"원";
-        resultYearlyPay.value = (total*12+Number(basicPayA)).toLocaleString()+"원";
-    }
-    
-}
- </script>
-	
+	<script type="text/javascript">
+	function resultSal(frm) {
+		//계산하기 버튼을 누르면 실행될 함수
+
+		resultForm.resultName.value = frm.name.value;
+		resultForm.resultBasicPay.value = frm.basicPay.value;
+
+		var checkLicense = frm.license.checked; //자격증 체크
+		var checkChild = frm.child.checked;
+		//기타수당 체크
+		var checkMerit = frm.merit.checked;
+		var checkLongterm = frm.longterm.checked;
+
+		//자격증 체크 if문
+		if(checkLicense == false){
+			resultForm.resultLicense.value = 0;
+		}else{
+			resultForm.resultLicense.value = frm.license.value;
+		}
+		//자녀 수당 체크 if문
+		if(checkChild == false){
+			resultForm.resultChild.value = 0;
+		}else{
+			resultForm.resultChild.value = frm.child.value;
+		}
+
+
+		//기타 수당 계산하는 if문
+		if(checkMerit &&checkLongterm){ 
+			resultForm.resultEtc.value = 200000;
+		}else if((!checkMerit && checkLongterm) || (checkMerit &&!checkLongterm)){
+			resultForm.resultEtc.value = 100000;
+		}else if(!checkMerit && !checkLongterm) {
+			resultform.resultEtc.value=0;
+		}
+
+		//총액 계산
+		with(resultForm){
+			resultTotalPay.value =Number(resultBasicPay.value) 
+								+ Number(resultLicense.value) 
+								+ Number(resultChild.value) 
+								+ Number(resultEtc.value);
+		//총 세금 계산
+			resultTax.value = Number(resultBasicPay.value)*0.22;
+		//실 수령액
+			resultPay.value = Number(resultTotalPay.value) - (Number(resultBasicPay.value)*0.22);
+		//연봉
+			resultYearlyPay.value = (Number(resultTotalPay.value)*12) + Number(resultBasicPay.value);
+			
+		resultBasicPay.value = addComma(resultBasicPay.value);
+		resultLicense.value = addComma(resultLicense.value);
+		resultChild.value = addComma(resultChild.value);
+		resultEtc.value = addComma(resultEtc.value);
+		resultTotalPay = addComma(resultTotalPay);
+		resultYearlyPay = addComma(resultYearlyPay);
+		resultTax.value = addComma(resultTax.value);
+
+		var totalpay = resultTotalPay.value;
+		var pay = resultPay.value;
+		var yearlypay = resultYearlyPay.value;
+		
+		resultTotalPay.value = addComma(totalpay);
+		resultPay.value = addComma(pay);
+		resultYearlyPay.value = addComma(yearlypay);
+
+		}
+		// var basicpay = resultForm.resultBasicPay.value;
+		// var license = resultForm.resultLicense.value;
+		// var child = resultForm.resultChild.value;
+		// var etc = resultForm.resultEtc.value;
+		// var totalpay = resultForm.resultTotalPay.value;
+		// var yearlypay = resultForm.resultYearlyPay.value;
+
+		
+	}
+	function addComma(num) {
+  		var regexp = /\B(?=(\d{3})+(?!\d))/g;
+  		return num.toString().replace(regexp, ',');
+	}
+	</script>
 </head>
 <body>
-<h2>급여 관리 시스템 지원 양식</h2>
+	<h2>급여 관리 시스템 지원 양식</h2>
  <form name="payManage">
  <table>
      <tr>
@@ -131,6 +161,5 @@ function resultSal(frm){
 	 	</tr>
  </table>
  </form>
- 
 </body>
 </html>

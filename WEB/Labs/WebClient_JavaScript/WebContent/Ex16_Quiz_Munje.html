@@ -1,10 +1,8 @@
-
-
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-	<title>급여처리</title>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
 	<!--  
 		규칙 : 기본급여  : (정수값)
 		       기타수당  : 국가유공자 + 5년이상 근속
@@ -17,58 +15,12 @@
 		       
 	
 	-->
-<script type="text/javascript">
-function resultSal(frm){
-    var nameA = frm.name.value;
-    var basicPayA = frm.basicPay.value;
-    var licenseA=0;
-    var childA =0;
-    var meritA = 0;
-    var longtermA=0;
-    
-   for(var i=0; i<frm.license.length; i++){
-        if(frm.license[i].checked==true){
-            licenseA=frm.license[i].value;
-            break;
-        }
-    }
-    
-    for(var i=0; i<frm.child.length; i++){
-        if(frm.child[i].checked==true){
-            childA=frm.child[i].value;
-            break;
-        }
-    } 
-    
-    
-    if(frm.merit.checked==true)
-        meritA=frm.merit.value;
-    
-    if(frm.longterm.checked==true)
-        longtermA = frm.longterm.value;
-    
-    var total = Number(basicPayA)+Number(licenseA)+Number(meritA)+Number(longtermA)+Number(childA);
-    var tax = Number(basicPayA)*0.22;
-    //toLocaleString() 은
-    //Number 형의 내장 함수로 숫자를 지역에 따른 돈의 형태(1,000,000 와 같은)로 String 형태로 형변환을 시켜 리턴하는 함수이다.
-    with(resultForm){
-        resultName.value=nameA;
-        resultBasicPay.value=Math.round((Number(basicPayA))).toLocaleString()+"원";
-        resultLicense.value = Number(licenseA).toLocaleString()+"원";
-        resultChild.value = Number(childA).toLocaleString()+"원";
-        resultEtc.value = (Number(meritA)+Number(longtermA)).toLocaleString()+"원";
-        resultTotalPay.value = total.toLocaleString()+"원";
-        resultTax.value = tax.toLocaleString()+"원";
-        resultPay.value = (total-tax).toLocaleString()+"원";
-        resultYearlyPay.value = (total*12+Number(basicPayA)).toLocaleString()+"원";
-    }
-    
-}
- </script>
-	
+	<script type="text/javascript">
+
+	</script>
 </head>
 <body>
-<h2>급여 관리 시스템 지원 양식</h2>
+	<h2>급여 관리 시스템 지원 양식</h2>
  <form name="payManage">
  <table>
      <tr>
@@ -131,6 +83,5 @@ function resultSal(frm){
 	 	</tr>
  </table>
  </form>
- 
 </body>
 </html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        window.onload = function(){
+            var pele = document.createElement("p");
+            var hele = document.createElement("hr");
+            var h3ele = document.createElement("h3");
+            var textnode = document.createTextNode("Hello World");
+            var divele = document.createElement("div");
+            var textnode2 = document.createTextNode("Hi Hi Hi");
+
+            //<hr title = "수평선">
+            hele.setAttribute("title","수평선");
+            
+            //<h3>hello world</h3>
+            h3ele.appendChild(textnode);
+
+            //<div>hi hi hi</div>
+            divele.appendChild(textnode2);
+
+            //<body><p><div></div></p></body>
+            document.body.appendChild(pele).appendChild(divele);
+
+            document.body.appendChild(hele);
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

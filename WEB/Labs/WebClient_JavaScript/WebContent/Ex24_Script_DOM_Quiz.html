@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+        
+            document.getElementById("b1").onclick =function(){
+                //동적으로 생성되는 테이블
+                var intRow = parseInt(document.getElementById("txtrow").value);
+                var intColumn = parseInt(document.getElementById("txtcolumn").value);
+                //코드작성
+                var tableEle = document.createElement("table");
+                
+                document.body.appendChild(tableEle);
+                for(let row = 0; row <intRow; row++){
+                    var thEle = document.createElement("th");
+                    var thText = document.createTextNode((row+1)+"행")
+                    thEle.appendChild(thText);
+                    document.body.appendChild(thEle);
+                }
+
+
+                for(let row = 0; row < intRow; row++){
+                    var trEle = document.createElement("tr");
+                    for(let col = 0; col<intColumn; col++){
+                    
+                        var tdEle = document.createElement("td");
+                        var tdText = document.createTextNode((row+1)+"행"+(col+2)+"열")
+                        tdEle.appendChild(tdText);
+                        document.body.appendChild(trEle).appendChild(tdEle);
+                    }
+                }
+
+            }
+            document.getElementById("b2").onclick =function(){
+                //코드작성
+
+            }
+        }
+    </script>
+</head>
+<body>
+	<div id="div">
+			행의수 : <input type="text" id="txtrow" name="txtrow" value="2"><br>
+			열의수 : <input type="text" id="txtcolumn" name="txtcolumn" value="2"><br>
+			<input type="button" id="b1" value="동적테이블 생성">
+			<input type="button" id="b2" value="동적테이블 제거">
+	</div>
+</body>
+</html>

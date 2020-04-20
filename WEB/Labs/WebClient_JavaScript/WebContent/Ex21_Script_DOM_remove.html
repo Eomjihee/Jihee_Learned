@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .democlass {
+            color: red;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id = "div">
+        <h1 class="democlass">Hello World 1</h1>
+        <h1 class="democlass">Hello World 2</h1>
+        <h1 class="democlass">Hello World 3</h1>
+
+    </div>
+
+    <p id = "demo">Click the Button</p>
+    <button onclick="">Try it</button>
+    <script type="text/javascript">
+        var arr = document.getElementsByTagName("h1");
+        /*
+        for(let index in arr){
+            console.log(arr[index]);
+            // arr[index].removeAttribute("class")
+            //document.body.removeChild(arr[index]) h1은 div 자식요소라서 바로 접근 안됨 (error)
+            //document.getElementById("div").removeChild(arr[index]);
+            if(arr.length>0){
+                console.log(index+"/"+arr.length+"/"+(arr.length-1));
+                document.getElementById("div").removeChild(arr[arr.length -1]);
+            }else{
+                alert("모두 삭제되었습니다.");
+            }
+        }
+        */
+
+        /*
+        for (let index = arr.length; index > 0; index--) {
+            console.log(index + " / " + arr.length + " / " + (arr.length-1));
+            document.getElementById("div").removeChild(arr[0]);
+        } // 이렇게 하면 깔끔하게 지워짐 혜린쓰 답
+        */
+
+        /*복습하세요
+        var len = arr.length;
+        for(var i= 0 ; i < len ; i++){
+            console.log("len :" + len);
+            console.log("arr.length :" + arr.length + " - " +  "i : " + i);
+            console.log(arr[arr.length -1]); 
+            console.log("arr.length -1 : " + (arr.length -1));
+            console.log("***********************************");
+            document.getElementById("div").removeChild(arr[arr.length -1]);
+	   		//arr.length -1 >> 2,1,0
+        }
+          */
+        
+            /*
+            for(var i= 0 ; i < arr.length ; i++){
+                console.log("arr.length :" + arr.length + " - " +  "i : " + i);
+                console.log(arr[i]);
+                console.log("***********************************");
+                document.getElementById("div").removeChild(arr[i]);
+		   	    //[h1][h2][h3]
+		   	    //[0] [1] [2]
+		   	    //[h2][h3]
+		   	    //[0] [2]
+            }
+	      */
+        var len = arr.length;
+        for(let i = 0; i <len; i++){
+            arr[arr.length-1].remove();
+            console.log(arr);
+        }
+
+    </script>
+</body>
+</html>

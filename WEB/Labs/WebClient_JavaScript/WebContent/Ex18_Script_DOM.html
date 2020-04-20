@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+    /*
+    When a web page is loaded, the browser creates a Document Object Model of the page.
+
+    With the object model, JavaScript gets all the power it needs to create dynamic HTML:
+
+    JavaScript can change all the HTML elements in the page
+    JavaScript can change all the HTML attributes in the page
+    JavaScript can change all the CSS styles in the page
+    JavaScript can remove existing HTML elements and attributes
+    JavaScript can add new HTML elements and attributes
+    JavaScript can react to all existing HTML events in the page
+    JavaScript can create new HTML events in the page
+
+    id = "demo" 하나의 page 안에 같은 id 이름을 만들지 않는다
+    <p id = "kglim"></p>
+    <p id = "kglim"></p>(x)
+    */
+    </script>
+</head>
+<body>
+    <div id = "demo">첫번째</div>
+    <div id = "demo">
+        두번째 요소 (계층트리 형태에서 일단 id를 찾으면 거기서 끝나버림)
+    </div>
+</body>
+<script>
+    var ele_dev=document.getElementById("demo");
+    console.log(ele_dev);
+    ele_dev.innerHTML="<b>Hello World";
+</script>
+</html>

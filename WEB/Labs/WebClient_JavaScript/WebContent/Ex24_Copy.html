@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+		table{width: 100%; margin: 40px;}
+		table,tr,th,td {border: 1px solid; border-collapse: collapse;padding-top: 10px; padding-bottom: 10px;}
+        th{background-color: rgb(164, 200, 230); text-align: center;}
+		td{background-color: rgb(245, 245, 245); text-align: center;}
+	</style>
+    <script type="text/javascript">
+    window.onload = function(){
+		document.getElementById("b1").onclick =function(){
+			//동적으로 생성되는 테이블
+			var intRow = parseInt(document.getElementById("txtrow").value);
+            var intColumn = parseInt(document.getElementById("txtcolumn").value);
+            
+            //코드 작성
+            var tab = document.createElement("table");
+            tab.setAttribute("id" , "tab");
+
+            for(let row = 0; row <intRow ; row++){
+                var trEle = document.createElement("tr");
+
+                for(let col = 0; col<intColumn; col++){
+                    if(row==0){
+                        var thEle = document.createElement("th");
+                        var thText = document.createTextNode((row+1)+"행"+(col+1)+"열");
+                        thEle.appendChild(thText);
+                        trEle.appendChild(thEle);
+                    }else{
+                        var tdEle = document.createElement("td");
+                        var tdText = document.createTextNode((row+1)+"행"+(col+1)+"열");
+                        tdEle.appendChild(tdText);
+                        trEle.appendChild(tdEle);
+                    }
+                }  
+                tab.appendChild(trEle);
+            }
+            document.getElementById("div").appendChild(tab);
+
+        }
+        document.getElementById("b2").onclick =function(){
+            //생성된 테이블 삭제
+            var tab = document.getElementById("tab");
+            console.log(tab);
+            document.getElementById("div").removeChild(tab);
+
+
+        }
+    }
+
+    </script>
+</head>
+<body>
+    <div id="div">
+		행의수 : <input type="text" id="txtrow" name="txtrow" value="2"><br>
+		열의수 : <input type="text" id="txtcolumn" name="txtcolumn" value="2"><br>
+		<input type="button" id="b1"  value="동적테이블 생성" >
+		<input type="button" id="b2"  value="동적테이블 제거" >
+	</div>
+</body>
+</html>

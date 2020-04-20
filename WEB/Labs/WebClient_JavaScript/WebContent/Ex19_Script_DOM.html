@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+    /*
+    onload 이벤트가 발생하는 시점 : body 태그 안에 있는 모든 요소 브라우저에 loading 되고 나서 발생
+    loading 되고나서 발생
+    <body onload = "call()">
+    window.onload = call() 같은 방식
+
+    function call() {} //call 다른곳에서도 사용가능 (재사용)
+    window.onload = call(); 같은 방식
+     */ 
+    //함수의 이름이 없다 (익명함수 : 일회성 함수) : 재사용 불가능
+    //page 모든 요소가 loading 된 후에 함수가 자동 실행..
+    //body 안에 있는 모든 태그요소를 제어..
+    window.onload = function(){ 
+        var out= "";
+        out+= "<ul>";
+            out+="<li>javascript</li>";
+            out+="<li>jquery</li>";
+            out+="<li>vue</li>";
+        out+="</ul>";
+        document.body.innerHTML = out;
+
+        var header = document.createElement("h1");
+        //<h1></h1> 만들어짐
+        var textnode = document.createTextNode("hello");
+        //hello
+        header.appendChild(textnode);
+        //<h1>hello</h1> header의 자식요소로 textnode를 준다
+        
+        document.body.appendChild(header);
+        //body의 자식요소로 header를 준다
+        //append는 내용을 추가하기 때문에 header와 ul은 형제 요소가 된다.
+        //header가 ul 뒤로 가서 붙는다.
+        var img = document.createElement("img"); //<img>
+        //img.setAttribute(name,value)
+        img.setAttribute("src","images/flowerboon.jpg");
+        img.setAttribute("width",'100');
+        img.setAttribute("height",'100');
+        //<img src = "images/flowerboon.jpg" width ="100" height = "100">
+        document.body.appendChild(img);
+    }
+    </script>
+</head>
+<body>
+    Hello World
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        window.onload = function(){
+            var btnobj = document.getElementById("btnGetData");
+
+            //이벤트 처리
+            btnobj.onclick = function(){ // 익명함수 (일회성)
+                var txtmsg = document.getElementById("txtmessage");
+                var str = "";
+                str += "ID : "+txtmsg.getAttribute("id"); //id의 value값을 얻어올것임
+                str += "\nVALUE : " +txtmsg.getAttribute("value");
+                str += "\nVALUE : " +txtmsg.value;
+                str += "\nLENGTH : " +txtmsg.value.length;
+                console.log(str);
+            }
+            document.getElementById("btnCreate").onclick = function() {
+                var txtname = document.createElement("input");
+                txtname.setAttribute("type" , "text");
+                txtname.setAttribute("id","txtbox");
+                txtname.setAttribute("value","홍길동");
+                document.body.appendChild(txtname);
+            }
+        }
+    </script>
+</head>
+<body>
+    <input type="text" name="txtmessage" id="txtmessage" value="hello">
+    <input type="button" name="btnGetData" id="btnGetData" value="getInfo">
+    <hr>
+    <input type="button" name="btnCreate" id="btnCreate" value="동적 생성">
+</body>
+</html>

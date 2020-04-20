@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        window.onload = function(){
+            var menode;
+            menode = document.getElementById("me");//<div id = "me">C</div>
+            menode.style.backgroundColor = "yellow";
+
+            var parentnode = menode.parentNode;
+            parentnode.style.backgroundColor = "skyblue";
+
+            var grandnode;
+            grandnode = parentnode.parentNode; //html
+            grandnode.style.backgroundColor = "black";
+
+            var my = document.getElementById("mychild");
+            console.log(my)
+            console.log(my.firstChild.nodeName); //nodeName : LI
+            console.log(my.firstChild.innerText); //LI태그의 안쪽에 있는 텍스트를 들고옴 : AA 
+            // inner는 value 속성이 없는 녀석들
+            //innerHtml, innerText
+            //div, p, li ..... <div>aaaa</div>
+            //<input type ="text" value= "">
+            console.log(my.firstChild.nextSibling.innerText); //BB
+            console.log(my.childNodes); //Array
+            console.log(my.childNodes.length);
+            /*
+            for(let index in my.childNodes){
+                let text = my.childNodes[index].innerText;
+                console.log("index : "+index + "/" + "Text : "+text);
+            }
+            개선된 for문으로는 node가 가지는 내부적 요소들까지 같이 출력된다.
+            따라서 이럴 땐 그냥 for문으로 출력하면 깔끔
+            */
+            for (let i = 0; i < my.childNodes.length; i++){
+                var text = my.childNodes[i].innerText;
+                console.log(text);
+            }
+
+        }
+    </script>
+</head>
+<body>
+    <div>A</div><div>B</div><div id = "me">C</div><div>D</div><div>E</div>
+    <ul id="mychild"><li>AA</li><li>BB</li><li>CC</li></ul>
+</body>
+</html>

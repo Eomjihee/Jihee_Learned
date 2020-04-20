@@ -6,65 +6,67 @@
 <meta charset="UTF-8">
 	<title>급여처리</title>
 	<!--  
-		규칙 : 기본급여  : (정수값)
-		       기타수당  : 국가유공자 + 5년이상 근속
-		       총액      : (기본급 + 자격증 수당 + 자녀 수당 + 기타 수당)
-		       세금      : 기본급 * 0.22 
-		       실수령액  : 총액 - 세금
-		       연봉      : 총액 * 12 + 기본급
-		       천단위 콤마 처리 : 자율 (표현식 , 로직)
-		       10,000,000원 
-		       
-	
+		규칙
+		기본급여  : (정수값)
+		기타수당  : 국가유공자 + 5년이상 근속
+		총액      : (기본급 + 자격증 수당 + 자녀 수당 + 기타 수당)
+		세금      : 기본급 * 0.22 
+		실수령액  : 총액 - 세금
+		연봉      : 총액 * 12 + 기본급
+		천단위 콤마 처리 : 자율 (표현식 , 로직)
+			10,000,000원 
 	-->
-<script type="text/javascript">
-function resultSal(frm){
-    var nameA = frm.name.value;
-    var basicPayA = frm.basicPay.value;
-    var licenseA=0;
-    var childA =0;
-    var meritA = 0;
-    var longtermA=0;
-    
-   for(var i=0; i<frm.license.length; i++){
-        if(frm.license[i].checked==true){
-            licenseA=frm.license[i].value;
-            break;
-        }
-    }
-    
-    for(var i=0; i<frm.child.length; i++){
-        if(frm.child[i].checked==true){
-            childA=frm.child[i].value;
-            break;
-        }
-    } 
-    
-    
-    if(frm.merit.checked==true)
-        meritA=frm.merit.value;
-    
-    if(frm.longterm.checked==true)
-        longtermA = frm.longterm.value;
-    
-    var total = Number(basicPayA)+Number(licenseA)+Number(meritA)+Number(longtermA)+Number(childA);
-    var tax = Number(basicPayA)*0.22;
-    //toLocaleString() 은
-    //Number 형의 내장 함수로 숫자를 지역에 따른 돈의 형태(1,000,000 와 같은)로 String 형태로 형변환을 시켜 리턴하는 함수이다.
-    with(resultForm){
-        resultName.value=nameA;
-        resultBasicPay.value=Math.round((Number(basicPayA))).toLocaleString()+"원";
-        resultLicense.value = Number(licenseA).toLocaleString()+"원";
-        resultChild.value = Number(childA).toLocaleString()+"원";
-        resultEtc.value = (Number(meritA)+Number(longtermA)).toLocaleString()+"원";
-        resultTotalPay.value = total.toLocaleString()+"원";
-        resultTax.value = tax.toLocaleString()+"원";
-        resultPay.value = (total-tax).toLocaleString()+"원";
-        resultYearlyPay.value = (total*12+Number(basicPayA)).toLocaleString()+"원";
-    }
-    
-}
- </script>
+	<script type="text/javascript">
+	
+		function comma(money) {
+			return money.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원";	
+		}
+					
+		function resultSal(frm){
+			var name=frm.name.value;
+			var basicPay=Number(frm.basicPay.value);
+			var license =Number(frm.license.value);
+			var child = Number(frm.child.value);
+			
+			var merit = 0;
+			var longterm = 0;
+			
+			if(frm.merit.checked){
+				merit = Number(frm.merit.value);	
+			}
+			if(frm.longterm.checked){
+				longterm = Number(frm.longterm.value);
+			}			
+			
+			console.log(merit);
+			console.log(longterm);
+			
+			/* console.log(name);
+			console.log(basicPay);
+			console.log(license);
+			console.log(child);
+			console.log(merit);
+			console.log(longterm); */
+			
+			var rfrm = document.resultForm;
+			
+			resultEtc = merit + longterm;//국가유공자 + 5년이상 근속
+			resultTotalPay = basicPay + license + child + merit + longterm;//(기본급 + 자격증 수당 + 자녀 수당 + 기타 수당)
+			resultTax = basicPay * 0.22;//기본급 * 0.22
+			resultPay = resultTotalPay - resultTax;//실수령액  : 총액 - 세금
+			resultYearlyPay = resultTotalPay*12+basicPay;//총액 * 12 + 기본급
+			
+			rfrm.resultName.value = name; //성명
+			rfrm.resultBasicPay.value = comma(basicPay); //기본급
+			rfrm.resultLicense.value = comma(license); //자격증수당
+			rfrm.resultChild.value = comma(child); //자녀수당
+			rfrm.resultEtc.value = comma(resultEtc);//국가유공자 + 5년이상 근속
+			rfrm.resultTotalPay.value = comma(resultTotalPay);//(기본급 + 자격증 수당 + 자녀 수당 + 기타 수당)
+			rfrm.resultTax.value = comma(resultTax); //기본급 * 0.22
+			rfrm.resultPay.value = comma(resultPay);//실수령액  : 총액 - 세금
+			rfrm.resultYearlyPay.value = comma(resultYearlyPay);//총액 * 12 + 기본급
+		}
+	</script>
 	
 </head>
 <body>
