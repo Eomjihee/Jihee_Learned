@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+    function displayDate(){
+        document.getElementById("demo").innerHTML=new Date();
+    }
+    //document.getElementById("mybtn").onclick = displayDate(); //오류 날거임 왜냐면 순서대로 읽으니까.
+    
+    //window.onload = function(){}
+    //function call(){};
+    //window.onload = call();
+
+    // 오류 해결법
+    // 1. script 자체를 body뒤로 옮기는 방법
+    // 2. 
+    window.onload = function(){
+        document.getElementById("mybtn").onclick = displayDate;
+        //주의사항 
+        //.onclick = displayDate(); 괄호가 있으면 안됨. 함수를 호출해버려요라는데 호출해야하는거아닌지..?헷갈림..
+        //.onclick = displayDate; 
+    }
+
+    </script>
+</head>
+<body>
+    <button id="mybtn">눌러봐</button><br>
+    <button id = "mybtn2" onclick="displayDate()">눌러봐2</button> <!--가장 안좋은방식-->
+    <p id = "demo"></p>
+</body>
+</html>

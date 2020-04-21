@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+    //1. 배열은 [] 로 만듦.. > var arr = []; push(), pop()
+    //2. JSON 객체 > {} > var obj = {}; obj.속성명
+
+    //배열과 객체 혼합 (대부분의 공공데이터가 혼합되어있다.)
+    var students = [];
+    students.push({이름 : "홍길동" , 국어 : 80, 영어 :60});
+    students.push({이름 : "아무개" , 국어 : 100, 영어 :50});
+    students.push({이름 : "이순신" , 국어 : 10, 영어 :60});
+    
+    //[{}, {}, {}] 배열안에 객체 하나, 객체 두개, 객체 세개 만들어짐.
+    //기존에 만들어진 객체에 함수 추가
+    for(let index in students){
+        students[index].getSum = function(){return this.국어 + this.영어;}
+        students[index].getAvg = function(){return this.getSum()/2;}
+    }
+    console.log(students);
+    for(let index in students){
+        console.log(students[index].이름)
+        console.log(students[index].getSum());
+        console.log(students[index].getAvg());
+    }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+    //header에 스크립트 만들땐 무조건 아래 익명함수가 목적임. 나머지는 body안에 쓰겠다...
+    //window.onload = function(){}
+    </script>
+</head>
+<body>
+    <!--https://www.w3schools.com/js/js_htmldom_eventlistener.asp-->
+    <button id = "mybtn">Try it</button>
+
+<script type="text/javascript">
+
+    /*
+    var x = document.getElementById("mybtn");
+    x.addEventListener("click",myfunc); //event 적고 event가 걸렸을때 동작될 값을 ,찍고 적어줌
+    x.addEventListener("click",otherfunc); 
+    function myfunc(){
+        alert("Hello World");
+    }
+    function otherfunc(){
+        alert("Korea World");
+    }
+    */
+    var x = document.getElementById("mybtn");
+    x.addEventListener("mouseover", moverfunc);
+    x.addEventListener("mouseout", moutfunc);
+    x.addEventListener("click", mclickfunc);
+
+    function moverfunc(){
+        document.getElementById("mybtn").innerHTML += "<br>Mouse over";
+    }
+
+    function moutfunc(){
+        document.getElementById("mybtn").innerHTML += "<br>Mouse out";
+    }
+
+    function mclickfunc(){
+        document.getElementById("mybtn").innerHTML += "<br>Click";
+    }
+</script>
+</body>
+</html>

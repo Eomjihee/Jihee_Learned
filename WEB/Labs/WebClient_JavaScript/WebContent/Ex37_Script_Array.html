@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+    var arr = ['포도','사과'];
+    document.write(arr.toString()+"<br>");
+    document.write(arr+"<br>");
+    //document.write(arr+"<br> toString() default<br>");
+
+    for(let i = 0; i < arr.length; i++){
+        document.write(arr[i]+"<br>");
+    }
+    //동적 기능
+    //출력 : arr[0] >> 포도 , arr[1] >> 사과
+    //방 2개
+
+    arr[2] = "바나나"; //가능! 동적으로 데이터 추가 가능
+    document.write(arr[2]+"<br>");
+    document.write(arr.toString()+"<br>"+arr.length+"<br>");
+    
+    arr[10] = "애플망고";
+    document.write(arr.toString()+"<br>"+arr.length+"<br>");
+    
+    var arr2 = ["one","two","three"];
+    document.write(arr2.toString()+"<br>"+arr2.length+"<br>");
+
+    arr2.length = 2; //강제로 사이즈 줄여보기. 그러면 안됨.
+    document.write(arr2.toString()+"<br>"+arr2.length+"<br>");
+    //배열크기가 줄어 마지막 값 삭제
+
+    arr2.length=4;
+    document.write(arr2[2]); //undefined
+
+    //Point (javascript : Array >> Stack구조이므로 LIFO)
+    arr2.push("Four");
+    document.write("push: "+arr2.toString()+"<br>"+arr2.length+"<br>");
+
+    document.write(arr2.pop()+"<br>");
+    document.write(arr2.pop()+"<br>");
+    document.write(arr2.pop()+"<br>");
+    document.write(arr2.pop()+"<br>");
+    document.write(arr2.pop()+"<br>");
+
+    //javascript 배열 선언
+    var list =[];
+    list.push("A");
+    list.push("B");
+    list.push("C");
+
+    document.write("<br>"+list.pop());
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		window.onload = function(){
+			var myphotos = ["images/1.jpg",
+                            "images/2.jpg",
+                            "images/3.jpg",
+                            "images/4.jpg",
+                            "images/5.jpg",
+			                ]; //int[] arr = new int[]{10,20,30}
+
+			//console.log(myphotos[2]);
+			//img  id="imgs" 의 src 속성값을        myphotos의 값으로                
+			//var img =.....
+			//img.src = ...
+			//img.setAttr ....(name,value)
+			//myphotos[index]
+			var index = 0; //myphotos에 index 값으로 넣어줄 변수명 초기화
+			
+			//이전 구현
+			//이전 onclick 이벤트 (익명함수 )사용해서 ......
+			//console.log("index : " + index);
+			document.getElementById("prv").onclick = function(){
+				if(index ==0){
+					index = myphotos.length;
+				}
+				document.getElementById("imgs").src = myphotos[--index]; 
+				// --먼저해줘야 이전 사진이 들어옴. 
+				// 그리고 --하기때문에 length길이 그대로 받아도 문제가 안생김. length-1 안해줘도 된단 소리
+
+			}
+			
+			
+			//다음 구현
+			//다음 onclick 이벤트(익명함수)사용해서 ......
+			//id prv onclick 이벤트 .....
+			//id next onclick 이벤트 .....
+			document.getElementById("next").onclick = function(){
+				if(++index == myphotos.length) {
+					index = 0;
+				}
+				document.getElementById("imgs").src = myphotos[index];
+			}
+			
+		}
+	</script>
+</head>
+<body>
+	<h3>DOM 슬라이드</h3>
+	<img src="images/1.jpg" id="imgs" width="400"  alt="이미지">
+	<hr>
+	<a href="#" id="prv">이전</a>||<a href="#" id="next">다음</a>
+</body>
+</html>
