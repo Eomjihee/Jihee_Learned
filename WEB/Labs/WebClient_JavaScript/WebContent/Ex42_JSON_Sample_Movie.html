@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
+	
 	<link rel="stylesheet" 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -28,30 +29,48 @@
 										]
 									}
 				};
-	var movies = [];
-	var dBoxList = data.boxOfficeResult[2].dailyBoxOfficeList;
-	for(let index in movies){
-		movies.push(dBoxList[index]);
-	}
-	console.log(movies);
 	
-	//table.tbody.append("<tr>")
-	};
 	//데이터를 원하는 형태로 가공해서 출력하세요
+
+		document.getElementById("title").innerText = data.boxOfficeResult.boxofficeType;
+		document.getElementById("subtitle").innerText = data.boxOfficeResult.showRange;
+
+		var head = [
+			"순위" , "영화 제목" , "개봉일" , "일 관객수" , "누적 관객수"
+		];
+		var key = [
+			"rank" , "movieNm" , "openDt", "audiCnt" , "audiAcc"
+		];
+
+		for(let index in head){
+			document.getElementById("thead").children[0].innerHTML += "<th>" + head[index]+"</th>";
+			//document.getElementById("thead").createElement("th");
+		}
+		var tbody = document.getElementById("tbody"); //tbody = <tbody id = "tbody"></tbody>;
+		for(let index in data.boxOfficeResult.dailyBoxOfficeList){
+			let tr = tbody.appendChild(document.createElement("tr"));
+			for(let index2 in head){
+				let td = tr.appendChild(document.createElement("td"));
+				td.innerText = data.boxOfficeResult.dailyBoxOfficeList[index][key[index2]];
+			}
+		}
+	}
+
 	</script>
 </head>
 <body>
-	<table class="table"> 
-		<thead> 
-			<tr> 
-				<!-- JSON 값과 매칭될 field를 명시 --> 
-				<th data-field="rank">rank</th> 
-				<th data-field="rankInten">rankInten</th> 
-				<th data-field="movieNm">movieNm</th> 
+	<div class="container">
+		<h2 id="title"></h2>
+		<p id="subtitle"></p>            
+		<table class="table table-dark table-striped">
+		  <thead id="thead">
+			<tr>
 			</tr>
-		</thead> 
-		<tbody> 
-		</tbody> 
-	</table>
+		  </thead>
+		  <tbody id="tbody">
+		 
+		  </tbody>
+		</table>
+	</div>
 </body>
 </html>
